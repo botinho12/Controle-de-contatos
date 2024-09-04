@@ -5,7 +5,12 @@
 //Fechando o botao dos alertas
 $(document).ready(function()
 {
-    $('#table-contatos').DataTable({
+    getDataTable('#table-contatos');
+    getDataTable('#table-usuario');
+})
+
+function getDataTable(id) {
+    $(id).DataTable({
         "ordering": true,
         "paging": true,
         "searching": true,
@@ -33,7 +38,7 @@ $(document).ready(function()
             }
         }
     });
-});
+}
 
 $('.close-alert').click(function () {
     $('.alert').hide('hide');

@@ -410,3 +410,6 @@ C:\Users\vinic\OneDrive\Área de Trabalho\ControleDeContatos\ControleDeContatos\
 C:\Users\vinic\OneDrive\Área de Trabalho\ControleDeContatos\ControleDeContatos\ControleDeContatos\ControleDeContatos\obj\Debug\net8.0\ControleDeContatos.pdb
 C:\Users\vinic\OneDrive\Área de Trabalho\ControleDeContatos\ControleDeContatos\ControleDeContatos\ControleDeContatos\obj\Debug\net8.0\ControleDeContatos.genruntimeconfig.cache
 C:\Users\vinic\OneDrive\Área de Trabalho\ControleDeContatos\ControleDeContatos\ControleDeContatos\ControleDeContatos\obj\Debug\net8.0\ref\ControleDeContatos.dll
+C:\Users\vinic\OneDrive\Área de Trabalho\ControleDeContatos\ControleDeContatos\ControleDeContatos\ControleDeContatos\obj\Debug\net8.0\ControleDeContatos.sourcelink.json
+C:\Users\vinic\OneDrive\Área de Trabalho\ControleDeContatos\ControleDeContatos\ControleDeContatos\ControleDeContatos\obj\Debug\net8.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
+C:\Users\vinic\OneDrive\Área de Trabalho\ControleDeContatos\ControleDeContatos\ControleDeContatos\ControleDeContatos\bin\Debug\net8.0\Newtonsoft.Json.dll
