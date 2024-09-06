@@ -31,6 +31,7 @@ namespace ControleDeContatos.Repositorio
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
             usuario.DataCadastro = DateTime.Now;
+            usuario.SetSenhaHash();
             //GRAVAR NO BANCO DE DADOS
             Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<UsuarioModel> entityEntry = _bancoContext.Usuarios.Add(usuario);
             _bancoContext.SaveChanges();
