@@ -10,7 +10,7 @@ namespace ControleDeContatos.ViewComponents
     public class Menu : ViewComponent
     {
 #pragma warning disable CS1998 // O método assíncrono não possui operadores 'await' e será executado de forma síncrona
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult?> InvokeAsync()
 #pragma warning restore CS1998 // O método assíncrono não possui operadores 'await' e será executado de forma síncrona
         {
             string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");

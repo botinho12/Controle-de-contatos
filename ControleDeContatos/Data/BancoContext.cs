@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ControleDeContatos;
 using ControleDeContatos.Models;
+using ControleDeContatos.Data.Map;
 
 namespace ControleDeContatos.Data
 {
@@ -16,6 +17,8 @@ namespace ControleDeContatos.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ContatoMap());
+
             base.OnModelCreating(modelBuilder);
         }
 

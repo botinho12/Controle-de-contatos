@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\newFile.1.js" />
+    <Content Remove="wwwroot\js\newFile.2.js" />
+    <Content Remove="wwwroot\js\newFile.3.js" />
+    <Content Remove="wwwroot\js\newFile.4.js" />
+    <Content Remove="wwwroot\js\newFile.5.js" />
+    <Content Remove="wwwroot\js\newFile.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\newFile.2.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\newFile.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
@@ -26,6 +40,10 @@
 
   <ItemGroup>
     <Content Update="Views\Usuario\ApagarConfirmacao.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Usuario\_ContatosUsuario.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

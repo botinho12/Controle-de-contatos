@@ -7,14 +7,14 @@ namespace ControleDeContatos.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Digite o nome do contato")]
-        public string Nome { get; set; }
+        public string ? Nome { get; set; }
 
         [Required(ErrorMessage = "Digite o Login do contato")]
-        public string Login { get; set; }
+        public string ? Login { get; set; }
    
         [Required(ErrorMessage = "Digite o E-mail do usuario")]
         [EmailAddress(ErrorMessage = "O e-mail informado nao e valido")]
-        public string Email { get; set; }
+        public string ? Email { get; set; }
         [Required(ErrorMessage = "Informe o perfil do usuario")]
         public PerfilEnum? Perfil { get; set; }
     }

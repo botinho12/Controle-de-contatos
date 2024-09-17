@@ -1,23 +1,40 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-//Fechando o botao dos alertas
-$(document).ready(function()
-{
-    getDataTable('#table-contatos');
-    getDataTable('#table-usuario');
+
+
+
+$(function () {
+    getDatatable('#table-contatos');
+    getDatatable('#table-usuario');
+    
+
+    $('.btn-total-contatos').on('click', function () {
+        var usuarioId = $(this).attr('usuario-id')
+
+        $.ajax({
+            type: 'GET',
+            url: '/Usuario/ListarContatosPorUsuarioId/' + usuarioId,
+            success: function (result) {
+                $("#listaContatosUsuario").html(result);               
+                $('#modalContatosUsuario').modal('show');
+                getDatatable('#table-contatos-usuario');
+            }
+        });      
+    });
 })
 
-function getDataTable(id) {
+
+function getDatatable(id) {
     $(id).DataTable({
         "ordering": true,
         "paging": true,
         "searching": true,
         "oLanguage": {
             "sEmptyTable": "Nenhum registro encontrado na tabela",
-            "sInfo": "Mostrar _START_ até _END_ de _TOTAL_ registros",
-            "sInfoEmpty": "Mostrar 0 até 0 de 0 Registros",
+            "sInfo": "Mostrar _START_ at&eacute; _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrar 0 at&eacute; 0 de 0 Registros",
             "sInfoFiltered": "(Filtrar de _MAX_ total registros)",
             "sInfoPostFix": "",
             "sInfoThousands": ".",
@@ -40,6 +57,7 @@ function getDataTable(id) {
     });
 }
 
-$('.close-alert').click(function () {
-    $('.alert').hide('hide');
+
+$('.close-alert').on('click', function () {
+    $(".alert").hide();
 });

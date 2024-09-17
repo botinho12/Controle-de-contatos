@@ -25,10 +25,12 @@ namespace ControleDeContatos.Filters
                     context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "Index" } });
                 }
 
+#pragma warning disable CS8602 // Desreferência de uma referência possivelmente nula.
                 if (usuario.Perfil != Enums.PerfilEnum.Admin)
                 {
                     context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Restrito" }, { "action", "Index" } });
                 }
+#pragma warning restore CS8602 // Desreferência de uma referência possivelmente nula.
             }
 
             base.OnActionExecuting(context);

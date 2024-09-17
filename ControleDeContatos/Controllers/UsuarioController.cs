@@ -7,22 +7,25 @@ using System;
 namespace ControleDeContatos.Controllers
 {
     [PaginaRestritaSomenteAdmin]
-    public class UsuarioController : Controller
+    public class UsuarioController(IUsuarioRepositorio usuarioRepositorio,IContatoRepositorio contatoRepositorio) : Controller
     {
-        private readonly IUsuarioRepositorio _usuarioRepositorio;
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio)
-        {
-            _usuarioRepositorio = usuarioRepositorio;
-        }
+        private readonly IUsuarioRepositorio _usuarioRepositorio = usuarioRepositorio;
+        private readonly IContatoRepositorio _contatoRepositorio = contatoRepositorio;
         public IActionResult Index()
         {
-            List<UsuarioModel> usuario= _usuarioRepositorio.BuscarTodos();
-            return View(usuario);
+            List<UsuarioModel> usuarios = _usuarioRepositorio.BuscarTodos();
+            return View(usuarios);
         }
 
         public IActionResult Criar()
         {
             return View();
+        }
+
+        public IActionResult ListarContatosPorUsuarioId(int id)
+        {
+            List<ContatoModel> contatos = _contatoRepositorio.BuscarTodos(id);
+            return PartialView("_ContatosUsuario", contatos);
         }
 
         [HttpPost]
@@ -89,6 +92,7 @@ namespace ControleDeContatos.Controllers
                 UsuarioModel usuario = null;
                 if (ModelState.IsValid)
                 {
+#pragma warning disable CS8601 // Possível atribuição de referência nula.
                     usuario = new UsuarioModel()
                     {
                         Id = UsuarioSemSenhaModel.Id,
@@ -97,6 +101,7 @@ namespace ControleDeContatos.Controllers
                         Email = UsuarioSemSenhaModel.Email,
                         Perfil = UsuarioSemSenhaModel.Perfil
                     };
+#pragma warning restore CS8601 // Possível atribuição de referência nula.
 
                     usuario = _usuarioRepositorio.Atualizar(usuario);
                     TempData["MensagemSucesso"] = "Usuario alterado com sucesso";

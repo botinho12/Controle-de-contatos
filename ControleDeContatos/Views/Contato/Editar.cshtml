@@ -1,14 +1,14 @@
 ﻿@model ContatoModel
 @{
-    ViewData["title"] = "Listagem de contatos";
+    ViewData["title"] = "Editar contatos";
 }
 <div class="text-center">
 
-    <h1 class="display-4"> Alterar contato</h1>
+    <h1 class="display-4"> Editar contato</h1>
 
 </div>
 
-<form ASP-controller="contato" asp-action="alterar" method="post">
+<form ASP-controller="Contato" asp-action="Editar" method="post">
 
     <input type="hidden" asp-for="Id"/>
     <div class="form-group">
@@ -31,7 +31,7 @@
 
     <br />
 
-    <button type="submit" class="btn btn-primary  btn-block">Alterar</button>
+    <button type="submit" class="btn btn-primary  btn-block">Editar</button>
     <a class="btn btn-secondary btn-block " asp-controller="contato" asp-action="Index" role="button">Voltar</a>
 </form>
 

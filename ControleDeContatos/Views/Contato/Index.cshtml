@@ -5,7 +5,7 @@
 <div class="text-center">
 
        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-           <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar novo contato</a>
+           <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar" role="button">Adicionar novo contato</a>
        </div>
        <br />
 
@@ -34,7 +34,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">E-mail</th>
+                <th scope="col">Email</th>
                 <th scope="col">Celular</th>
                 <th scope="col"></th>
             </tr>
@@ -57,6 +57,10 @@
                         </td>
                     </tr>
                 }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum contato encontrado</td></tr>
             }
         </tbody>
         

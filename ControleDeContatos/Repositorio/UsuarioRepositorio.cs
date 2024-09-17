@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ControleDeContatos.Data;
 using ControleDeContatos.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleDeContatos.Repositorio
 {
@@ -16,22 +17,30 @@ namespace ControleDeContatos.Repositorio
         }
         public UsuarioModel BuscarPorLogin(string login)
         {
+#pragma warning disable CS8603 // Possível retorno de referência nula.
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+#pragma warning restore CS8603 // Possível retorno de referência nula.
         }
 
         public UsuarioModel BuscarPorEmailELogin(string email, string Login)
         {
+#pragma warning disable CS8603 // Possível retorno de referência nula.
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper() && x.Login.ToUpper() == Login.ToUpper());
+#pragma warning restore CS8603 // Possível retorno de referência nula.
         }
 
         public UsuarioModel ListarPorId(int id)
         {
+#pragma warning disable CS8603 // Possível retorno de referência nula.
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
+#pragma warning restore CS8603 // Possível retorno de referência nula.
         }
 
         public List<UsuarioModel> BuscarTodos()
         {
-            return _bancoContext.Usuarios.ToList();
+            return _bancoContext.Usuarios
+                .Include(x => x.Contatos)
+                .ToList();
         }
         
         public UsuarioModel Adicionar(UsuarioModel usuario)
